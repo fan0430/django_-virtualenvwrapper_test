@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coffee menu</title>
+</head>
+<body>
+    <h1>Coffee menu</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+        {% for c in coffee %}
+            <tr>
+              <td>{{ c.name }}</a></td>
+              <td>{{ c.price }}</td>
+            </tr>
+         {% empty %}
+            <li>No menu item</li>
+        {% endfor %}
+    </table>
+</body>
+</html>

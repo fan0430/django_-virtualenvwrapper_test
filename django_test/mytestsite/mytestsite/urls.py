@@ -15,8 +15,26 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path, include
+from catalog import views, urls
+
+from django.views.generic import RedirectView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+
+    # 引入到app urls
+    # path('catalog/', include('catalog.urls')),
+    # path('', include('catalog.urls')),
+    path('catalog/', include('catalog.urls')),
+    path('', RedirectView.as_view(url='/catalog/', permanent=True)),
+    
+
+    # 导向未定义的 URL 到 views.page_not_found
+    re_path(r'^.*', views.other),
+    # re_path(r'^(?!admin/|catalog/).*', views.menu), # 用正則過濾已知
+
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
