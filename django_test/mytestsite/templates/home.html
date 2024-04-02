@@ -6,6 +6,11 @@
 </head>
 <body>
     <h1>Welcome my cafe shop.</h1>
-    <h1>Home</h1>
+    <!-- <h1>Home</h1> -->
+    {% if str %}
+        <h1>{{ str }}</h1>
+    {% else %}
+        <h1>Home</h1>
+    {% endif %}
 </body>
 </html>

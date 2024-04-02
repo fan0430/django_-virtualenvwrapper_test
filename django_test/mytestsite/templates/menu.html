@@ -8,13 +8,15 @@
     <h1>Coffee menu</h1>
     <table>
         <tr>
+            <th>Id</th>
             <th>Name</th>
             <th>Price</th>
         </tr>
         {% for c in coffee %}
             <tr>
-              <td>{{ c.name }}</a></td>
-              <td>{{ c.price }}</td>
+                <td>{{ c.id }}</a></td>
+                <td>{{ c.name }}</a></td>
+                <td>{{ c.price }}</td>
             </tr>
          {% empty %}
             <li>No menu item</li>
